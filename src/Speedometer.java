@@ -51,6 +51,7 @@ public class Speedometer {
 			int rpm = 0;
 			int velocity;
 			int counts;
+			int counter = 0;
 			long time = System.currentTimeMillis();
 			while (true) {
 				// Calculate RPM (Revolutions Per Minute)
@@ -59,7 +60,8 @@ public class Speedometer {
 				// iterationsPerMinute = 600 - ten loops per second
 				// countsPerRevolution = 128 - fixed by design of sensor/codewheel
 			
-				
+				if (counter > 10)
+					counter = 0;
 				//velocity = (thumbwheel.sample() - 512) / 31;
 				velocity = 4;
 				
@@ -71,7 +73,8 @@ public class Speedometer {
 				
 				
 				//governer logic
-				power += (velocity - (rpm/16.25));
+				if (counter == 10)
+					power += (velocity - (rpm/16.25));
 
 				//limiter
 				if (power > 16) 
