@@ -59,7 +59,8 @@ public class Speedometer {
 				// countsThisIteration - current encoder counts minus previous count
 				// iterationsPerMinute = 600 - ten loops per second
 				// countsPerRevolution = 128 - fixed by design of sensor/codewheel
-			
+				
+				//basic counter logic
 				if (counter > 10)
 					counter = 0;
 				//velocity = (thumbwheel.sample() - 512) / 31;
