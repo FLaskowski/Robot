@@ -64,7 +64,7 @@ public class Speedometer {
 				velocity = 4;
 				
 				//counts and rpm logic
-				counts = encoder.getCounts();
+				int counts = encoder.getCounts();
 				previousCounts = counts;
 				rpm = ((counts - previousCounts) * 600) / 128;
 				display.print(0, "RPM: " + rpm);
