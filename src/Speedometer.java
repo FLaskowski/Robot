@@ -69,6 +69,7 @@ public class Speedometer {
 				previousCounts = counts;
 				display.print(0, "RPM: " + rpm);
 				
+				
 				//governer logic
 				power += (velocity - (rpm/16.25));
 
