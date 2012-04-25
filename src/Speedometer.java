@@ -65,12 +65,12 @@ public class Speedometer {
 				
 				//counts and rpm logic
 				int counts = encoder.getCounts();
-				previousCounts = counts;
 				rpm = ((counts - previousCounts) * 600) / 128;
+				previousCounts = counts;
 				display.print(0, "RPM: " + rpm);
 				
 				//governer logic
-				power += (velocity + (rpm/16.25));
+				power += (velocity - (rpm/16.25));
 
 				//limiter
 				if (power > 16) 
